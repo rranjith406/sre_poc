@@ -40,10 +40,12 @@ NEWPWD="secr3t"
 
 # ---- Define Dynatrace Environment ----
 # Sample: https://{your-domain}/e/{your-environment-id} for managed or https://{your-environment-id}.live.dynatrace.com for SaaS
-TENANT=
-PAASTOKEN=
-APITOKEN=
-
+#TENANT=
+#PAASTOKEN=
+#APITOKEN=
+TENANT=https://zzn10375.live.dynatrace.com
+PAASTOKEN=dt0c01.45JTL4OY4XYFDZWQONERVJRP.VGN3PXZKNDUZTIDTXHJNQTV56LGNPS3AQ6T23IIDUA4OWH5YGFPKZWTDZ5CQ55LA
+APITOKEN=dt0c01.5IUSOED23E6ZK6HPNCWEZIEN.6KERRXL6XBLTDHPPINGBHRXR76YSHLXHFWCB7FKZTRFMKL7IK4ILS7HCICSUFFDN
 # Set your custom domain e.g for an internal machine like 192.168.0.1.nip.io
 # So Keptn and all other services are routed and exposed properly via the Ingress Gateway
 # if no DOMAIN is setted, the public IP of the machine will be converted to a magic nip.io domain
@@ -53,7 +55,7 @@ DOMAIN=
 # ---- The Email Account for the Certmanager ClusterIssuer with Let's encrypt ----
 # ---- By not providing an Email and letting certificates get generated will end up in
 # face Email accounts Enabling certificates with lets encrypt and not changing for your email will end up in cert rate limits for: nip.io: see https://letsencrypt.org/docs/rate-limits/
-CERTMANAGER_EMAIL=
+CERTMANAGER_EMAIL=rranjith406@gmail.com
 
 # ==================================================
 #      ----- Functions Location -----              #

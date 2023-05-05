@@ -86,7 +86,7 @@ keptndemo_cartsonboard=false
 expose_kubernetes_api=false
 expose_kubernetes_dashboard=false
 patch_kubernetes_dashboard=false
-create_workshop_user=false
+create_workshop_user=true
 
 # ======================================================================
 #             ------- Installation Bundles  --------                   #
