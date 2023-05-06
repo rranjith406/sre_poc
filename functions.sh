@@ -9,13 +9,17 @@
 KIAB_RELEASE="release-0.10.0"
 
 #https://cert-manager.io/docs/release-notes/
-CERTMANAGER_VERSION=0.14.0
+# - Updated version by Ranjith
+CERTMANAGER_VERSION=1.11.0
 #https://istio.io/latest/news/releases/
-ISTIO_VERSION=1.9.1
+# - Updated version by Ranjith
+ISTIO_VERSION=1.17.1
 # https://github.com/helm/helm/releases
-HELM_VERSION=3.5.0
+# - Updated version by Ranjith -> Helm v3.11.2 is a patch release.
+HELM_VERSION=3.11.2
 # https://github.com/keptn/keptn
-KEPTN_VERSION=0.10.0
+# - Updated version by Ranjith -> Keptn v1.2.0
+KEPTN_VERSION=1.2.0
 # https://github.com/keptn-contrib/dynatrace-service
 KEPTN_DT_SERVICE_VERSION=0.18.1
 
