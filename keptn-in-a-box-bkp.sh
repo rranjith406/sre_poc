@@ -48,7 +48,7 @@ APITOKEN=dt0c01.5IUSOED23E6ZK6HPNCWEZIEN.6KERRXL6XBLTDHPPINGBHRXR76YSHLXHFWCB7FK
 # So Keptn and all other services are routed and exposed properly via the Ingress Gateway
 # if no DOMAIN is setted, the public IP of the machine will be converted to a magic nip.io domain
 # ---- Define your Domain ----
-DOMAIN=172.31.15.178.nip.io
+DOMAIN=
 
 # ---- The Email Account for the Certmanager ClusterIssuer with Let's encrypt ----
 # ---- By not providing an Email and letting certificates get generated will end up in
@@ -59,37 +59,37 @@ CERTMANAGER_EMAIL=rranjith406@gmail.com
 #      ----- Functions Location -----              #
 # ==================================================
 # - Keptn in a Box release
-#KIAB_RELEASE="release-0.10.0"
+KIAB_RELEASE="release-0.10.0"
 # - Functions file location
 # Commented to clone from local repo
-#FUNCTIONS_FILE_REPO="https://raw.githubusercontent.com/keptn-sandbox/keptn-in-a-box/${KIAB_RELEASE}/functions.sh"
+FUNCTIONS_FILE_REPO="https://raw.githubusercontent.com/keptn-sandbox/keptn-in-a-box/${KIAB_RELEASE}/functions.sh"
 #KIAB_RELEASE=release-0.10.0
 
 
 ## ----  Write all output to the logfile ----
-#if [ "$pipe_log" = true ]; then
-#  echo "Piping all output to logfile $LOGFILE"
-#  echo "Type 'less +F $LOGFILE' for viewing the output of installation on realtime"
-#  echo ""
+if [ "$pipe_log" = true ]; then
+  echo "Piping all output to logfile $LOGFILE"
+  echo "Type 'less +F $LOGFILE' for viewing the output of installation on realtime"
+  echo ""
   # Saves file descriptors so they can be restored to whatever they were before redirection or used
   # themselves to output to whatever they were before the following redirect.
-#  exec 3>&1 4>&2
+  exec 3>&1 4>&2
   # Restore file descriptors for particular signals. Not generally necessary since they should be restored when the sub-shell exits.
-#  trap 'exec 2>&4 1>&3' 0 1 2 3
+  trap 'exec 2>&4 1>&3' 0 1 2 3
   # Redirect stdout to file log.out then redirect stderr to stdout. Note that the order is important when you
   # want them going to the same file. stdout must be redirected before stderr is redirected to stdout.
-#  exec 1>$LOGFILE 2>&1
-#else
-#  echo "Not piping stdout stderr to the logfile, writing the installation to the console"
-#fi
+  exec 1>$LOGFILE 2>&1
+else
+  echo "Not piping stdout stderr to the logfile, writing the installation to the console"
+fi
 
 # Load functions after defining the variables & versions
-#if [ -f "$FUNCTIONS_FILE" ]; then
-#  echo "The functions file $FUNCTIONS_FILE exists locally, loading functions from it. (dev)"
-#else
-#  echo "The functions file $FUNCTIONS_FILE does not exist, getting it from github."
-#  curl -o functions.sh $FUNCTIONS_FILE_REPO
-#fi
+if [ -f "$FUNCTIONS_FILE" ]; then
+  echo "The functions file $FUNCTIONS_FILE exists locally, loading functions from it. (dev)"
+else
+  echo "The functions file $FUNCTIONS_FILE does not exist, getting it from github."
+  curl -o functions.sh $FUNCTIONS_FILE_REPO
+fi
 
 # Comfortable function for setting the sudo user.
 if [ -n "${SUDO_USER}" ]; then
@@ -103,7 +103,7 @@ alias bashas="sudo -H -u ${USER} bash -c"
 shopt -s expand_aliases
 
 # --- Loading the functions in the current shell
-#source $FUNCTIONS_FILE
+source $FUNCTIONS_FILE
 
 # ==================================================
 #      ----- Override Components Versions -----    #
@@ -119,7 +119,7 @@ shopt -s expand_aliases
 # installationBundleKeptnOnly
 
 # - Comment out if selecting another bundle
-#installationBundleDemo
+installationBundleDemo
 
 # - Comment out if only want to install the Performance Clinic 'Why Devs love Dynatrace' Bundle
 #installationBundleDevLove
@@ -150,4 +150,4 @@ create_workshop_user=true
 # ==================================================
 #  ----- Call the Installation Function -----      #
 # ==================================================
-#doInstallation
+doInstallation

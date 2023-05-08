@@ -1,0 +1,14 @@
+   88  sudo apt update
+   89  apt install docker.io -y
+   90  sudo apt install docker.io -y
+   91  docker --version
+   92  docker ps
+   93  service docker status
+   94  usermod -a -G docker $USER
+   95  sudo usermod -a -G docker $USER
+   96  echo $USER
+   97  sudo usermod -a -G ubuntu root
+   98  docker ps
+   99  sudo su -
+  100  docker ps
+
