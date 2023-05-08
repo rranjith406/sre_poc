@@ -16,7 +16,10 @@ else
     echo "usage expose.sh yamlfilename"
     exit
 fi
-
+echo "Present Working Dir"
+pwd
+echo "List of all files and Dirs"
+ll
 cat $yaml.yaml | sed 's~domain.placeholder~'"$DOMAIN"'~' > ./gen/$yaml.yaml
 
 kubectl apply -f gen/$yaml.yaml
