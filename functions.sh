@@ -612,7 +612,8 @@ keptndemoDeployCartsloadgenerator() {
 resourcesClone() {
   if [ "$resources_clone" = true ]; then
     printInfoSection "Clone Keptn-in-a-Box Resources in $KEPTN_IN_A_BOX_DIR"
-    bashas "git clone --branch $KIAB_RELEASE $KEPTN_IN_A_BOX_REPO $KEPTN_IN_A_BOX_DIR --single-branch"
+    # bashas "git clone --branch $KIAB_RELEASE $KEPTN_IN_A_BOX_REPO $KEPTN_IN_A_BOX_DIR --single-branch"
+    bashas "git clone $KEPTN_IN_A_BOX_DIR"
   fi
 }
 
