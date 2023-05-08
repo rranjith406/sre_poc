@@ -61,7 +61,10 @@ CERTMANAGER_EMAIL=rranjith406@gmail.com
 # - Keptn in a Box release
 KIAB_RELEASE="release-0.10.0"
 # - Functions file location
+# Commented to clone from local repo
 FUNCTIONS_FILE_REPO="https://raw.githubusercontent.com/keptn-sandbox/keptn-in-a-box/${KIAB_RELEASE}/functions.sh"
+#KIAB_RELEASE=release-0.10.0
+
 
 ## ----  Write all output to the logfile ----
 if [ "$pipe_log" = true ]; then

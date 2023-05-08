@@ -29,7 +29,9 @@ TEASER_IMAGE="shinojosa/kiab:0.8"
 # https://github.com/ubuntu/microk8s/releases
 # snap info microk8s - Updated version by Ranjith
 MICROK8S_CHANNEL="1.27"
-KEPTN_IN_A_BOX_DIR="~/keptn-in-a-box"
+#KEPTN_IN_A_BOX_DIR="~/keptn-in-a-box"
+KEPTN_IN_A_BOX_DIR="https://github.com/rranjith406/sre_poc.git"
+
 KEPTN_EXAMPLES_DIR="~/examples"
 KEPTN_IN_A_BOX_REPO="https://github.com/keptn-sandbox/keptn-in-a-box.git"
 DEVLOVE_ET_REPO="https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines.git"
