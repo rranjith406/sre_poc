@@ -16,10 +16,11 @@ else
     echo "usage expose.sh yamlfilename"
     exit
 fi
-echo "Present Working Dir"
-pwd
-echo "List of all files and Dirs"
-ll
+
+#You can install an Ingress controller such as the nginx-ingress controller by running the following command:
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml
+
+
 cat $yaml.yaml | sed 's~domain.placeholder~'"$DOMAIN"'~' > ./gen/$yaml.yaml
 
 kubectl apply -f gen/$yaml.yaml
