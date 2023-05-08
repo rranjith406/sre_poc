@@ -35,14 +35,14 @@ FUNCTIONS_FILE='functions.sh'
 
 # ---- Workshop User  ----
 # The flag 'create_workshop_user'=true is per default set to false. If it's set to to it'll clone the home directory from USER and allow SSH login with the given text password )
-NEWUSER="student"
-NEWPWD="secr3t"
+NEWUSER="dt_sre"
+NEWPWD="dt_admin"
 
 # ---- Define Dynatrace Environment ----
 # Sample: https://{your-domain}/e/{your-environment-id} for managed or https://{your-environment-id}.live.dynatrace.com for SaaS
-TENANT=
-PAASTOKEN=
-APITOKEN=
+TENANT=https://zzn10375.live.dynatrace.com
+PAASTOKEN=dt0c01.45JTL4OY4XYFDZWQONERVJRP.VGN3PXZKNDUZTIDTXHJNQTV56LGNPS3AQ6T23IIDUA4OWH5YGFPKZWTDZ5CQ55LA
+APITOKEN=dt0c01.5IUSOED23E6ZK6HPNCWEZIEN.6KERRXL6XBLTDHPPINGBHRXR76YSHLXHFWCB7FKZTRFMKL7IK4ILS7HCICSUFFDN
 
 # Set your custom domain e.g for an internal machine like 192.168.0.1.nip.io
 # So Keptn and all other services are routed and exposed properly via the Ingress Gateway
@@ -53,7 +53,7 @@ DOMAIN=
 # ---- The Email Account for the Certmanager ClusterIssuer with Let's encrypt ----
 # ---- By not providing an Email and letting certificates get generated will end up in
 # face Email accounts Enabling certificates with lets encrypt and not changing for your email will end up in cert rate limits for: nip.io: see https://letsencrypt.org/docs/rate-limits/
-CERTMANAGER_EMAIL=
+CERTMANAGER_EMAIL=rranjith406@gmail.com
 
 # ==================================================
 #      ----- Functions Location -----              #
@@ -61,7 +61,10 @@ CERTMANAGER_EMAIL=
 # - Keptn in a Box release
 KIAB_RELEASE="release-0.10.0"
 # - Functions file location
+# Commented to clone from local repo
 FUNCTIONS_FILE_REPO="https://raw.githubusercontent.com/keptn-sandbox/keptn-in-a-box/${KIAB_RELEASE}/functions.sh"
+#KIAB_RELEASE=release-0.10.0
+
 
 ## ----  Write all output to the logfile ----
 if [ "$pipe_log" = true ]; then
@@ -137,12 +140,12 @@ installationBundleDemo
 # ---- Enable or Disable specific functions -----  #
 # ==================================================
 # -- Override a module like for example verbose output of all commands
-#verbose_mode=false
+verbose_mode=true
 
 # -- or install cert manager
-#certmanager_install=true
-#certmanager_enable=true
-#create_workshop_user=true
+certmanager_install=true
+certmanager_enable=true
+create_workshop_user=true
 
 # ==================================================
 #  ----- Call the Installation Function -----      #

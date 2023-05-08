@@ -9,13 +9,17 @@
 KIAB_RELEASE="release-0.10.0"
 
 #https://cert-manager.io/docs/release-notes/
-CERTMANAGER_VERSION=0.14.0
+# - Updated version by Ranjith
+CERTMANAGER_VERSION=1.11.0
 #https://istio.io/latest/news/releases/
-ISTIO_VERSION=1.9.1
+# - Updated version by Ranjith
+ISTIO_VERSION=1.17.1
 # https://github.com/helm/helm/releases
-HELM_VERSION=3.5.0
+# - Updated version by Ranjith -> Helm v3.11.2 is a patch release.
+HELM_VERSION=3.11.2
 # https://github.com/keptn/keptn
-KEPTN_VERSION=0.10.0
+# - Updated version by Ranjith -> Keptn v1.2.0
+KEPTN_VERSION=1.2.0
 # https://github.com/keptn-contrib/dynatrace-service
 KEPTN_DT_SERVICE_VERSION=0.18.1
 
@@ -23,9 +27,11 @@ KEPTN_DT_SERVICE_VERSION=0.18.1
 KEPTN_EXAMPLES_BRANCH="0.10.0"
 TEASER_IMAGE="shinojosa/kiab:0.8"
 # https://github.com/ubuntu/microk8s/releases
-# snap info microk8s
-MICROK8S_CHANNEL="1.19/stable"
-KEPTN_IN_A_BOX_DIR="~/keptn-in-a-box"
+# snap info microk8s - Updated version by Ranjith
+MICROK8S_CHANNEL="1.27"
+#KEPTN_IN_A_BOX_DIR="~/keptn-in-a-box"
+KEPTN_IN_A_BOX_DIR="https://github.com/rranjith406/sre_poc.git"
+
 KEPTN_EXAMPLES_DIR="~/examples"
 KEPTN_IN_A_BOX_REPO="https://github.com/keptn-sandbox/keptn-in-a-box.git"
 DEVLOVE_ET_REPO="https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines.git"
@@ -51,7 +57,7 @@ shopt -s expand_aliases
 #  before execution.                                                   #
 # ======================================================================
 # If you add varibles here, dont forget the function definition and the priting in printFlags function.
-verbose_mode=false
+verbose_mode=true
 update_ubuntu=false
 docker_install=false
 microk8s_install=false
@@ -86,7 +92,7 @@ keptndemo_cartsonboard=false
 expose_kubernetes_api=false
 expose_kubernetes_dashboard=false
 patch_kubernetes_dashboard=false
-create_workshop_user=false
+create_workshop_user=true
 
 # ======================================================================
 #             ------- Installation Bundles  --------                   #
@@ -127,7 +133,7 @@ installationBundleDemo() {
   patch_kubernetes_dashboard=false
   keptn_bridge_disable_login=true
   # By default no WorkshopUser will be created
-  create_workshop_user=false
+  create_workshop_user=true
 }
 
 installationBundleWorkshop() {
@@ -473,7 +479,7 @@ setupMagicDomainPublicIp() {
 microk8sInstall() {
   if [ "$microk8s_install" = true ]; then
     printInfoSection "Installing Microkubernetes with Kubernetes Version $MICROK8S_CHANNEL"
-    snap install microk8s --channel=$MICROK8S_CHANNEL --classic
+    snap install microk8s --classic --channel=$MICROK8S_CHANNEL
 
     printInfo "allowing the execution of priviledge pods "
     bash -c "echo \"--allow-privileged=true\" >> /var/snap/microk8s/current/args/kube-apiserver"
